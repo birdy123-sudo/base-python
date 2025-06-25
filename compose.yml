@@ -1,0 +1,15 @@
+services:
+  python:
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+    image: python
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app
+      - ./log:/var/log
+      - ./output:/output
+    tty: true
+    restart: unless-stopped
+    
